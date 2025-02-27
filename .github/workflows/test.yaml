@@ -1,0 +1,45 @@
+---
+name: "Run Unit Tests"
+on:
+  #  trigger manually:
+  workflow_dispatch:
+  # trigger when PR is created, edited or synchronized:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+#if there is running any workflow (within specified group), it will be cancelled:
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  # specify a name:
+  run-maven-tests:
+    name: Tests in Maven
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v4
+        with:
+          ref: $${{ github.head_ref }}
+
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+# server-id taken from pom.xml -> distributionManagement.repository.id
+          server-id: projectrepo
+# set up where settings.xml file will be stored
+          settings-path: ${{ github.workspace }}/.mvn
+          cache: maven
+
+      - name: Run rest
+        id: mvn-test
+        shell: bash
+        run: |
+          mvn --settings ${GITHUB_WORKSPACE}/.mvn/settings.xml -N wrapper:wrapper
+          ./mvnw --settings ${GITHUB_WORKSPACE}/.mvn/settings.xml dependency:resolve
+          ./mvnw --settings ${GITHUB_WORKSPACE}/.mvn/settings.xml test
