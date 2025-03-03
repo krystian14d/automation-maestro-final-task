@@ -1,7 +1,12 @@
-name: Code Linter Trigger Manually
+name: Code Linter
 
 on:
   workflow_dispatch:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
 
 permissions:
   contents: read
