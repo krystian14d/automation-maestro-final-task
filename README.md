@@ -5,3 +5,4 @@
 3. Added code linter - triggered manually
 4. Adjusted code linter - triggered on PR
 5. Added Pull Request linter
+6. Added workflow to build and test code - base for further CI improvements
