@@ -1,0 +1,38 @@
+name: Code Linter Trigger Manually
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  code-lint:
+    name: Check coding style
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+      statuses: write
+
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v4
+        with:
+          # super-linter needs the full git history to get the
+          # list of files that changed across commits
+          fetch-depth: 0
+
+      - name: Super-linter
+        uses: super-linter/super-linter@v7.2.1 # x-release-please-version
+        env:
+          # To report GitHub Actions status checks
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CREATE_LOG_FILE: true
+          DEFAULT_BRANCH: main
+          DEFAULT_WORKSPACE: ${{ github.workflow }}
+          DISABLE_ERRORS: true
+          IGNORE_GENERATED_FILES: true
+          IGNORE_GITIGNORED_FILES: true
+          VALIDATE_ALL_CODEBASE: true
+          VALIDATE_JAVA: true
