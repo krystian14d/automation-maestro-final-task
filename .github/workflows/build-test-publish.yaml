@@ -46,7 +46,7 @@ jobs:
     if: |
       needs.check.outputs.has_gh_secrets
     env:
-      REPOSITORY_URL: "https://maven.pkg.github.com/${{ github.repository }}"
+      REPOSITORY_URL: "https://github.com/${{ github.repository }}/packages"
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
