@@ -6,4 +6,6 @@
 4. Adjusted code linter - triggered on PR
 5. Added Pull Request linter
 6. Added workflow to build and test code - base for further CI improvements
-7. 
+7. Workflow build-test.yaml renamed to build-test-publish.yaml. 
+   1. Added publishing to Docker container registry
+   2. Added Dockerfile
