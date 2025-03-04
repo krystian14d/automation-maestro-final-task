@@ -90,6 +90,7 @@ jobs:
         run: ./mvnw --settings ${GITHUB_WORKSPACE}/.mvn/settings.xml --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   container:
     name: GitHub Packages - Container Build & Publish
     runs-on: ubuntu-latest

@@ -4,10 +4,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.gda.example.app</groupId>
-  <artifactId>myserver</artifactId>
+  <artifactId>finaltask</artifactId>
   <version>1.0.0</version>
 
-  <name>myserver</name>
+  <name>finaltask</name>
   <url>https://github.com/krystian14d/automation-maestro-final-task.git</url>
 
   <properties>
