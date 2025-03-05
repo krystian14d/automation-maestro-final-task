@@ -51,8 +51,10 @@ jobs:
       new_release_published: ${{ steps.semantic_dry.outputs.new_release_published }}
       new_release_version: ${{ steps.semantic_dry.outputs.new_release_version }}
     steps:
+
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Get semantic release version
         uses: cycjimmy/semantic-release-action@v3
         id: semantic_dry
@@ -74,7 +76,7 @@ jobs:
             @semantic-release/git@10.0.1
 
   tag_version:
-    name: release
+    name: tag version release
     needs: [check, check_version_number]
     if: |
       needs.check.outputs.has_gh_secrets
