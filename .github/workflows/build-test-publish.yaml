@@ -98,7 +98,7 @@ jobs:
         id: mvn-package
         shell: bash
         run: |
-          ./mvnw versions:set -DnewVersion=sha-${{ env.SHA }} -DgenerateBackupPoms=false
+          ./mvnw versions:set -DnewVersion=${{ inputs.release_tag }} -DgenerateBackupPoms=false
           ./mvnw --settings ${GITHUB_WORKSPACE}/.mvn/settings.xml package
 
       - name: Publish to GitHub Packages
