@@ -9,3 +9,4 @@
 7. Workflow build-test.yaml renamed to build-test-publish.yaml. 
    1. Added publishing to Docker container registry
    2. Added Dockerfile
+8. Added semantic release
