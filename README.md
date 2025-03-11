@@ -10,3 +10,4 @@
    1. Added publishing to Docker container registry
    2. Added Dockerfile
 8. Added semantic release
+9. Added automatic changelog generation
