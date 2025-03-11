@@ -21,13 +21,39 @@
           "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES"]
         }
       }],
+      ["@semantic-release/release-notes-generator", {
+        "preset": "conventionalcommits",
+        "presetConfig": {
+          "types": [
+            { "type": "feat", "section": "Features" },
+            { "type": "fix", "section": "Bug Fixes" },
+            { "type": "perf", "section": "Performance Improvements" },
+            { "type": "revert", "section": "Reverts" },
+            { "type": "docs", "section": "Documentation", "hidden": false },
+            { "type": "style", "section": "Styles", "hidden": false },
+            { "type": "chore", "section": "Miscellaneous Chores", "hidden": false },
+            { "type": "refactor", "section": "Code Refactors", "hidden": false },
+            { "type": "test", "section": "Tests", "hidden": false },
+            { "type": "build", "section": "Build System", "hidden": false },
+            { "type": "ci", "section": "CI/CD", "hidden": false },
+            { "type": "improvement", "section": "Improvements", "hidden": false }
+          ]
+        }
+      }
+      ],
       ["@semantic-release/github",
         {
           "successComment": false,
           "failTitle": false
         }],
+      ["@semantic-release/changelog", {
+        "changelogFile": "changelogs/CHANGELOG.md"
+      }],
+      ["@semantic-release/exec", {
+        "prepareCmd": "mv changelogs/CHANGELOG.md changelogs/CHANGELOG-${nextRelease.version}.md;"
+      }],
       ["@semantic-release/git", {
-        "assets": ["package.json", "pom.xml"],
+        "assets": ["package.json", "changelogs/**", "pom.xml"],
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }]
     ]
@@ -37,6 +63,8 @@
     "@semantic-release/commit-analyzer": "^9.0.2",
     "@semantic-release/github": "^8.0.7",
     "@semantic-release/exec": "^6.0.3",
-    "@semantic-release/git": "^10.0.1"
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/release-notes-generator": "^14.0.3",
+    "@semantic-release/changelog": "^6.0.3"
   }
 }

@@ -74,6 +74,8 @@ jobs:
             @semantic-release/github@8.0.7
             @semantic-release/exec@6.0.3
             @semantic-release/git@10.0.1
+            @semantic-release/release-notes-generator@10.0.3
+            @semantic-release/changelog@6.0.2
 
   tag_version:
     name: tag version release
@@ -111,6 +113,8 @@ jobs:
             @semantic-release/github@8.0.7
             @semantic-release/exec@6.0.3
             @semantic-release/git@10.0.1
+            @semantic-release/release-notes-generator@10.0.3
+            @semantic-release/changelog@6.0.2
 
       - name: Changelog version
         if: steps.semantic.outputs.new_release_published == 'true'
