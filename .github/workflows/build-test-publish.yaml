@@ -75,8 +75,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          ref: main
+
       - uses: actions/setup-java@v3
         with:
           java-version: '17'
@@ -131,8 +130,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          ref: main
 
       - uses: actions/setup-java@v3
         with:

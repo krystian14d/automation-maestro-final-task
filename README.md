@@ -11,3 +11,4 @@
    2. Added Dockerfile
 8. Added semantic release
 9. Added automatic changelog generation
+10. Added pre-release branch "beta"
