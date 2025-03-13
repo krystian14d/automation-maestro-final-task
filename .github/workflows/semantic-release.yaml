@@ -73,7 +73,7 @@ jobs:
               }
             ]
           extends: |
-            conventional-changelog-conventionalcommits@6.1.0
+            conventional-changelog-conventionalcommits
           extra_plugins: |
             @semantic-release/commit-analyzer@9.0.2
             @semantic-release/github@8.0.7
@@ -116,7 +116,7 @@ jobs:
               }
             ]
           extends: |
-            conventional-changelog-conventionalcommits@6.1.0
+            conventional-changelog-conventionalcommits
           extra_plugins: |
             @semantic-release/commit-analyzer@9.0.2
             @semantic-release/github@8.0.7

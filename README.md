@@ -12,3 +12,5 @@
 8. Added semantic release
 9. Added automatic changelog generation
 10. Added pre-release branch "beta"
+11. Added CI to detect secrets
+12. Added usage of CIs from external repo 
