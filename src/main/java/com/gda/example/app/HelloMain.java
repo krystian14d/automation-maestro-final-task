@@ -10,7 +10,6 @@ public class HelloMain {
     public static String sampleApiKey = "8dyfuiRyq=vVc3RRr_edRk-fK__JItpZ";
 
     public static void main(String[] args) {
-
         int port = Integer.parseInt(System.getProperty("port", defaultPort));
         MyServer httpServer = new MyServer();
         httpServer.Start(port);
