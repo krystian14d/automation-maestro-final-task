@@ -50,3 +50,4 @@ RUN groupadd -g 10001 javauser && \
 COPY --from=build /app/target/finaltask-*.jar /opt/app/finaltask.jar
 USER javauser:javauser
 CMD ["java", "-Dport=9090", "-jar", "/opt/app/finaltask.jar"]
+
