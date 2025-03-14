@@ -270,7 +270,7 @@ jobs:
     permissions:
       packages: read
       contents: write
-    uses: krystian14d/common-workflows/.github/workflows/sbom-scan-grype.yaml@main
+    uses: krystian14d/common-workflows/.github/workflows/sbom-scan-semgrep.yaml@main
     secrets:
       registry-username: ${{ github.actor }}
       registry-password: ${{ secrets.GITHUB_TOKEN }}
