@@ -1,0 +1,20 @@
+name: SAST validation
+
+on:
+  pull_request:
+    paths:
+      - '.mvn/**'
+      - 'src/**'
+      - 'pom.xml'
+      - '.classpath'
+      - '.project'
+
+jobs:
+  sast:
+    name: Validate code
+    uses: krystian14d/common-workflows/.github/workflows/sast-validation-semgrep.yaml@main
+    with:
+      rules: "p/java"
+      upload-artifact: true
+      upload-release-assets: false
+      upload-results-github-security: false
