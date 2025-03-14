@@ -47,6 +47,6 @@ RUN mkdir /opt/app
 RUN groupadd -g 10001 javauser && \
    useradd javauser -u 10000 -g javauser \
    && chown -R javauser:javauser /opt/app
-COPY --from=build /app/target/myserver-*.jar /opt/app/myserver.jar
+COPY --from=build /app/target/finaltask-*.jar /opt/app/finaltask.jar
 USER javauser:javauser
-CMD ["java", "-Dport=9090", "-jar", "/opt/app/myserver.jar"]
+CMD ["java", "-Dport=9090", "-jar", "/opt/app/finaltask.jar"]
