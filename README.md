@@ -14,3 +14,4 @@
 10. Added pre-release branch "beta"
 11. Added CI to detect secrets
 12. Added usage of CIs from external repo 
+13. Added Security workflows - IaC, SCA, SAST and Image scans - stored in external repository common-workflows
